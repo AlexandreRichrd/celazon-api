@@ -1,6 +1,5 @@
 import router from '@adonisjs/core/services/router'
-import ProductController from '../app/products/product.controller.js'
-import { IProductBody } from '../interfaces/product.interface.js'
+import ProductController from '../app/product/product.controller.ts'
 
 router.get('/', async () => {
   return {
