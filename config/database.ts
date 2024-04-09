@@ -1,8 +1,5 @@
-{{{
-  exports({ to: app.configPath('database.ts') })
-}}}
-import env from '#start/env'
-import { defineConfig } from '@adonisjs/lucid'
+import env from '#start/env';
+import { defineConfig } from '@adonisjs/lucid';
 
 const dbConfig = defineConfig({
   connection: 'mysql',
@@ -22,6 +19,6 @@ const dbConfig = defineConfig({
       },
     },
   },
-})
+});
 
-export default dbConfig
+export default dbConfig;

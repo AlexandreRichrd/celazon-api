@@ -1,10 +1,13 @@
 import router from '@adonisjs/core/services/router'
 import ProductController from '../app/product/product.controller.ts'
 import AuthController from '../app/auth/auth_controller.ts'
+import db from '@adonisjs/lucid/services/db'
 
 router.get('/', async () => {
+
+  const users = await db.from('users').select('*')
   return {
-    hello: 'world',
+    users
   }
 })
 
