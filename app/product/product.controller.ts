@@ -18,15 +18,9 @@ export interface IProduct {
 
 export default class ProductController{
     async index() : Promise<IProduct[]>{
-        const coffeeList = await db.from('product').select('*');
+        const coffeeList = await db.from('products').select('*');
         return coffeeList;
     }
-
-    // async indexById({ params }: HttpContext): Promise<any>{
-    //     const id = await getProductValidator.validate(params);
-    //     // logique
-    //     console.log(id)
-    // }
 
     async createProduct({ request }: HttpContext): Promise<any>{
         const body = await request.validateUsing(productBodyValidator);
