@@ -6,13 +6,14 @@ export default class extends BaseSchema {
   async up() {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
-      table.string('name').notNullable()
+      table.string('title').notNullable()
+      table.string('type').notNullable()
       table.float('price').notNullable()
-      table.text('description').notNullable()
-      table.float('notation').notNullable()
-      table.integer('order_count').notNullable()
       table.string('cover').notNullable()
-      table.string('sizes').notNullable()
+      table.integer('withdraw_time').notNullable()
+      table.integer('purchase_amount').notNullable()
+      table.boolean('is_prime').notNullable()
+      table.boolean('is_number_one').notNullable()
 
       table.timestamp('created_at')
       table.timestamp('updated_at')
