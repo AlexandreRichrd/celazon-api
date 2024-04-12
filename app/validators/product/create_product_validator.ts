@@ -1,13 +1,14 @@
 import vine from "@vinejs/vine";
 
 const productBodyValidator = vine.compile(vine.object({
-    name: vine.string(),
+    title: vine.string(),
+    type: vine.string(),
     price: vine.number().positive(),
-    description: vine.string(),
     cover: vine.string(),
-    sizes: vine.array(vine.string()),
-    notation: vine.number().positive(),
-    orderCount: vine.number().positive()
+    withdraw_time: vine.number().positive(),
+    purchase_amount: vine.number().positive(),
+    is_number_one: vine.boolean(),
+    is_prime: vine.boolean()
 }));
 
 export default productBodyValidator;

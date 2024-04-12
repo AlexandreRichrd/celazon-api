@@ -6,13 +6,16 @@ import db from "@adonisjs/lucid/services/db";
 
 export interface IProduct {
     id: number;
-    name: string;
+    title: string;
+    type: string;
     price: number;
-    description: string;
     cover: string;
-    sizes: string[];
-    notation: number;
-    orderCount: number;
+    withdraw_time: number;
+    purchase_amount: number;
+    is_prime: boolean;
+    is_number_one: boolean;
+    created_at: Date;
+    updated_at: Date;
 }
 
 
@@ -24,7 +27,7 @@ export default class ProductController{
 
     async createProduct({ request }: HttpContext): Promise<any>{
         const body = await request.validateUsing(productBodyValidator);
-        // logique
-        console.log(body)
+        const product = await db.table('products').insert(body);
+        return product;
     }
 }
