@@ -1,21 +1,22 @@
 import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 export default class ImageController {
-    uploadImage(image:string): any {
-        
-        // Reads file in form buffer => <Buffer ff d8 ff db 00 43 00 ...
-        const buffer = fs.readFileSync("");
-        // Pipes an image with "new-path.jpg" as the name.
-        fs.writeFileSync("new-path.jpg", buffer);
-    }
-
-    decodeimage(image:string): any {
-        const matches = dataString.match(/^data:([A-Za-z-+/]+);base64,(.+)$/);
-        if (matches?.length !== 3) {
-            throw new Error('Invalid input string');
+    static async saveBase64Image(base64Image: string): Promise<string> {
+        const matches = base64Image.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/);
+        if (!matches || matches.length !== 3) {
+            throw new Error('Invalid base64 data');
         }
+        const imageBuffer = Buffer.from(matches[2], 'base64');
 
-        // Décodage de Base64 en buffer binaire
-        const buffer = Buffer.from(matches[2], 'base64');
+        const dirname = path.dirname(fileURLToPath(import.meta.url));
+        const uploadPath = path.resolve(dirname, '../../../images/');
+
+        const filename = `image_${Date.now()}.jpg`;
+
+        fs.writeFileSync(path.join(uploadPath, filename), imageBuffer);
+
+        return "http://localhost:8081/images/" + filename;
     }
 }
