@@ -9,6 +9,7 @@ export default class BrandController{
     }
 
     async createBrand({ request }: HttpContext){
+        console.log('createBrand');
         const body = await request.validateUsing(brandBodyValidator);
         const brand = await db.table('brands').insert(body);
         return brand;

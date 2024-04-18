@@ -8,6 +8,9 @@ export default class Brand extends BaseModel {
     declare name: string;
 
     @column()
+    declare cover: string;
+
+    @column()
     declare created_at: Date;
 
     @column()

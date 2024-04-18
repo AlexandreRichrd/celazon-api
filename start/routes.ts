@@ -1,10 +1,11 @@
 import router from '@adonisjs/core/services/router'
-import ProductController from '../app/product/product.controller.ts'
-import AuthController from '../app/auth/auth_controller.ts'
-import ActivationCodeController from '../app/activation_code/activation_code_controller.ts'
+import ProductController from '../app/product/product.controller.js'
+import AuthController from '../app/auth/auth_controller.js'
+import ActivationCodeController from '../app/activation_code/activation_code_controller.js'
 import db from '@adonisjs/lucid/services/db'
 import mail from '@adonisjs/mail/services/main'
 import User from '#models/user'
+import BrandController from '../app/brand/brand_controller.js'
 
 router.get('/', async () => {
 
@@ -63,4 +64,9 @@ router.group(() => {
       router.post('/generate', [ActivationCodeController, 'generateCode'])
       router.post('/verify', [ActivationCodeController, 'verifyCode'])
   }).prefix('code')
+
+  router.group(() => {
+    router.get('/', [BrandController, 'index'])
+    router.post('/', [BrandController, 'createBrand'])
+  }).prefix('brands')
 })

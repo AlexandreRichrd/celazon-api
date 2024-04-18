@@ -8,7 +8,7 @@ export default class extends BaseSeeder {
         title: 'Logitech G Pro X Superlight',
         type: 'Mouse',
         price: 149.99,
-        cover: 'https://images-na.ssl-images-amazon.com/images/I/61QhZ0z7PQL._AC_SL1500_.jpg',
+        cover: 'https://m.media-amazon.com/images/I/41J4N5nPURL._AC_UF480,480_SR480,480_.jpg',
         withdraw_time: 1,
         purchase_amount: 100,
         is_prime: true,
@@ -18,8 +18,7 @@ export default class extends BaseSeeder {
         title: 'Razer Viper Ultimate',
         type: 'Mouse',
         price: 129.99,
-        cover: 'https://images-na.ssl-images-amazon.com/images/I/61zYjG5x5fL._AC_SL1500_.jpg',
-        withdraw_time: 1,
+        cover: 'https://m.media-amazon.com/images/I/41J4N5nPURL._AC_UF480,480_SR480,480_.jpg',        withdraw_time: 1,
         purchase_amount: 100,
         is_prime: true,
         is_number_one: false
@@ -28,8 +27,7 @@ export default class extends BaseSeeder {
         title: 'Asus ROG Strix Scope TKL',
         type: 'Keyboard',
         price: 129.99,
-        cover: 'https://images-na.ssl-images-amazon.com/images/I/61zYjG5x5fL._AC_SL1500_.jpg',
-        withdraw_time: 1,
+        cover: 'https://m.media-amazon.com/images/I/41J4N5nPURL._AC_UF480,480_SR480,480_.jpg',        withdraw_time: 1,
         purchase_amount: 100,
         is_prime: true,
         is_number_one: false
