@@ -6,10 +6,13 @@ export default class Product extends BaseModel {
     declare id: number
 
     @column()
-    declare title: string
+    declare product_type_id: number
 
     @column()
-    declare type: string
+    declare brand_id: number
+
+    @column()
+    declare title: string
 
     @column()
     declare price: number

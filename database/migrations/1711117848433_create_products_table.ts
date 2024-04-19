@@ -6,8 +6,9 @@ export default class extends BaseSchema {
   async up() {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
+      table.integer('product_type_id').unsigned().references('id').inTable('product_types').onDelete('CASCADE')
+      table.integer('brand_id').unsigned().references('id').inTable('brands').onDelete('CASCADE')
       table.string('title').notNullable()
-      table.string('type').notNullable()
       table.float('price').notNullable()
       table.string('cover').notNullable()
       table.integer('withdraw_time').notNullable()
